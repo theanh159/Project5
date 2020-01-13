@@ -32,6 +32,16 @@ class ViewController: UITableViewController {
         useWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allWords.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
+        cell.textLabel?.text = allWords[indexPath.row]
+        return cell
+    }
 
 }
 
